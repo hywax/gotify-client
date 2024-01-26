@@ -1,17 +1,17 @@
 {
-  "name": "vite-vanilla-library",
+  "name": "gotify-client",
   "type": "module",
   "version": "0.0.0",
   "private": true,
   "exports": {
     ".": {
-      "import": "./dist/vite-vanilla-library.js",
-      "require": "./dist/vite-vanilla-library.cjs"
+      "import": "./dist/gotify-client.js",
+      "require": "./dist/gotify-client.cjs"
     }
   },
-  "main": "./dist/vite-vanilla-library.cjs",
-  "module": "./dist/vite-vanilla-library.js",
-  "types": "./dist/vite-vanilla-library.d.ts",
+  "main": "./dist/gotify-client.cjs",
+  "module": "./dist/gotify-client.js",
+  "types": "./dist/gotify-client.d.ts",
   "files": ["dist"],
   "scripts": {
     "dev": "vite",
