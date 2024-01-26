@@ -1,5 +1,17 @@
 import type { GenerateApiOutput } from 'swagger-typescript-api'
+import { getDirnameNormalize } from '../utils/files'
 
-export default function (_api: GenerateApiOutput): void {
+export default async function (api: GenerateApiOutput): Promise<void> {
+  const modules = api.configuration.routes.combined?.map((route) => route.moduleName)
 
+  const template = api.getTemplate({ path: getDirnameNormalize(import.meta.url, '../templates/index.ejs') })
+  const content = api.renderTemplate(template, {
+    modules,
+  })
+
+  api.createFile({
+    fileName: `index.ts`,
+    path: getDirnameNormalize(import.meta.url, '../..'),
+    content: await api.formatTSContent(content),
+  })
 }
