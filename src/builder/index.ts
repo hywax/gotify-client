@@ -1,6 +1,7 @@
 import { generateApi } from 'swagger-typescript-api'
 import typesGenerator from './generators/types'
 import indexGenerator from './generators/index'
+import clientGenerator from './generators/client'
 import apiGenerator from './generators/api'
 
 const api = await generateApi({
@@ -14,4 +15,5 @@ const api = await generateApi({
 
 await typesGenerator(api)
 await indexGenerator(api)
+await clientGenerator(api)
 await apiGenerator(api)
