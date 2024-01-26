@@ -17,6 +17,7 @@ export class FetchHttpClient implements HttpClient {
     return fetch(endpoint, {
       headers: {
         'X-Gotify-Key': this.apiKey,
+        ...(params?.type && params?.type !== HttpContentType.FormData ? { 'Content-Type': params?.type } : {}),
       },
       method: params?.method,
       body,
