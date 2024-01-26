@@ -12,6 +12,7 @@
   "module": "./dist/gotify-client.js",
   "types": "./dist/gotify-client.d.ts",
   "files": [
+    "!dist/cover.jpg",
     "dist"
   ],
   "scripts": {
