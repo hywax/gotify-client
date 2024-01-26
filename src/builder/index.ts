@@ -11,6 +11,7 @@ const api = await generateApi({
   extractRequestBody: true,
   extractEnums: true,
   generateClient: false,
+  addReadonly: true,
 })
 
 await typesGenerator(api)
