@@ -19,23 +19,23 @@ export interface Application {
    * @format int64
    * @example 5
    */
-  id: number
+  readonly id: number
   /**
    * The image of the application.
    * @example "image/image.jpeg"
    */
-  image: string
+  readonly image: string
   /**
    * Whether the application is an internal application. Internal applications should not be deleted.
    * @example false
    */
-  internal: boolean
+  readonly internal: boolean
   /**
    * The last time the application token was used.
    * @format date-time
    * @example "2019-01-01T00:00:00Z"
    */
-  lastUsed?: string
+  readonly lastUsed?: string
   /**
    * The application name. This is how the application should be displayed to the user.
    * @example "Backup Server"
@@ -45,7 +45,7 @@ export interface Application {
    * The application token. Can be used as `appToken`. See Authentication.
    * @example "AWH0wZ5r0Mbac.r"
    */
-  token: string
+  readonly token: string
 }
 
 /**
@@ -81,13 +81,13 @@ export interface Client {
    * @format int64
    * @example 5
    */
-  id: number
+  readonly id: number
   /**
    * The last time the client token was used.
    * @format date-time
    * @example "2019-01-01T00:00:00Z"
    */
-  lastUsed?: string
+  readonly lastUsed?: string
   /**
    * The client name. This is how the client should be displayed to the user.
    * @example "Android Phone"
@@ -97,7 +97,7 @@ export interface Client {
    * The client token. Can be used as `clientToken`. See Authentication.
    * @example "CWH0wZ5r0Mbac.r"
    */
-  token: string
+  readonly token: string
 }
 
 /**
@@ -184,13 +184,13 @@ export interface Message {
    * @format int64
    * @example 5
    */
-  appid: number
+  readonly appid: number
   /**
    * The date the message was created.
    * @format date-time
    * @example "2018-02-27T19:36:10.5045044+01:00"
    */
-  date: string
+  readonly date: string
   /**
    * The extra data sent along the message.
    *
@@ -207,7 +207,7 @@ export interface Message {
    * @format int64
    * @example 25
    */
-  id: number
+  readonly id: number
   /**
    * The message. Markdown (excluding html) is allowed.
    * @example "**Backup** was successfully finished."
@@ -233,7 +233,7 @@ export interface Message {
  */
 export interface PagedMessages {
   /** The messages. */
-  messages: Message[]
+  readonly messages: Message[]
   /** The Paging holds information about the limit and making requests to the next page. */
   paging: Paging
 }
@@ -250,25 +250,25 @@ export interface Paging {
    * @max 200
    * @example 123
    */
-  limit: number
+  readonly limit: number
   /**
    * The request url for the next page. Empty/Null when no next page is available.
    * @example "http://example.com/message?limit=50&since=123456"
    */
-  next?: string
+  readonly next?: string
   /**
    * The ID of the last message returned in the current request. Use this as alternative to the next link.
    * @format int64
    * @min 0
    * @example 5
    */
-  since: number
+  readonly since: number
   /**
    * The amount of messages that got returned in the current request.
    * @format int64
    * @example 5
    */
-  size: number
+  readonly size: number
 }
 
 /**
@@ -280,7 +280,7 @@ export interface PluginConf {
    * The author of the plugin.
    * @example "jmattheis"
    */
-  author?: string
+  readonly author?: string
   /**
    * Capabilities the plugin provides
    * @example ["webhook","display"]
@@ -296,22 +296,22 @@ export interface PluginConf {
    * @format int64
    * @example 25
    */
-  id: number
+  readonly id: number
   /**
    * The license of the plugin.
    * @example "MIT"
    */
-  license?: string
+  readonly license?: string
   /**
    * The module path of the plugin.
    * @example "github.com/gotify/server/plugin/example/echo"
    */
-  modulePath: string
+  readonly modulePath: string
   /**
    * The plugin name.
    * @example "RSS poller"
    */
-  name: string
+  readonly name: string
   /**
    * The user name. For login.
    * @example "P1234"
@@ -321,7 +321,7 @@ export interface PluginConf {
    * The website of the plugin.
    * @example "gotify.net"
    */
-  website?: string
+  readonly website?: string
 }
 
 /**
@@ -361,7 +361,7 @@ export interface User {
    * @format int64
    * @example 25
    */
-  id: number
+  readonly id: number
   /**
    * The user name. For login.
    * @example "unicorn"
@@ -462,3 +462,22 @@ export interface HttpRequestParams {
   type?: HttpContentType
   format?: HttpFormat
 }
+
+export interface HttpAuthKeys {
+  app?: string
+  client?: string
+}
+
+export type IfEquals<X, Y, A = X, B = never> = (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ? 1 : 2
+  ? A
+  : B
+
+export type WritableKeys<T> = {
+  [P in keyof T]-?: IfEquals<{ [Q in P]: T[P] }, { -readonly [Q in P]: T[P] }, P>;
+}[keyof T]
+
+export type ReadonlyKeys<T> = {
+  [P in keyof T]-?: IfEquals<{ [Q in P]: T[P] }, { -readonly [Q in P]: T[P] }, never, P>;
+}[keyof T]
+
+export type Writable<T> = Pick<T, WritableKeys<T>>

@@ -1,13 +1,13 @@
-import type { HttpClient, HttpRequestParams, QueryParamsType } from './types'
+import type { HttpAuthKeys, HttpClient, HttpRequestParams, QueryParamsType } from './types'
 import { HttpContentType } from './types'
 
 export class FetchHttpClient implements HttpClient {
   private readonly host: string
-  private readonly apiKey: string
+  private readonly authKeys: HttpAuthKeys
 
-  constructor(host: string, apiKey: string) {
+  constructor(host: string, authKeys: HttpAuthKeys) {
     this.host = host.endsWith('/') ? host.slice(0, -1) : host
-    this.apiKey = apiKey
+    this.authKeys = authKeys
   }
 
   public async request<Result>(url: string, params?: HttpRequestParams) {
@@ -16,7 +16,7 @@ export class FetchHttpClient implements HttpClient {
 
     return fetch(endpoint, {
       headers: {
-        'X-Gotify-Key': this.apiKey,
+        'X-Gotify-Key': this.resolveAuthKey(url, params?.method || 'GET'),
         ...(params?.type && params?.type !== HttpContentType.FormData ? { 'Content-Type': params?.type } : {}),
       },
       method: params?.method,
@@ -26,6 +26,14 @@ export class FetchHttpClient implements HttpClient {
 
       return result as Result
     })
+  }
+
+  private resolveAuthKey(url: string, method: string) {
+    if (url === '/message' && method === 'POST') {
+      return this.authKeys.app || ''
+    }
+
+    return this.authKeys.client || ''
   }
 
   private transformBody(body: unknown, contentType: HttpContentType = HttpContentType.Json) {

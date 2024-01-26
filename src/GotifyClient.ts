@@ -8,7 +8,7 @@ import { PluginApi } from './api/PluginApi'
 import { StreamApi } from './api/StreamApi'
 import { UserApi } from './api/UserApi'
 import { VersionApi } from './api/VersionApi'
-import type { HttpClient } from './types'
+import type { HttpAuthKeys, HttpClient } from './types'
 
 export class GotifyClient {
   private readonly httpClient: HttpClient
@@ -22,8 +22,8 @@ export class GotifyClient {
   private readonly userApi: UserApi
   private readonly versionApi: VersionApi
 
-  constructor(host: string, apiKey: string) {
-    this.httpClient = new FetchHttpClient(host, apiKey)
+  constructor(host: string, authKeys: HttpAuthKeys) {
+    this.httpClient = new FetchHttpClient(host, authKeys)
 
     this.applicationApi = new ApplicationApi(this.httpClient)
     this.clientApi = new ClientApi(this.httpClient)
