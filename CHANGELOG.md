@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v0.3.0
+
+[compare changes](https://github.com/hywax/gotify-client/compare/v0.2.0...v0.3.0)
+
+### 🚀 Enhancements
+
+- ⚠️  Client generation in separate file ([75364d4](https://github.com/hywax/gotify-client/commit/75364d4))
+- ⚠️  Reexport in package index ([f02621a](https://github.com/hywax/gotify-client/commit/f02621a))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Client generation in separate file ([75364d4](https://github.com/hywax/gotify-client/commit/75364d4))
+- ⚠️  Reexport in package index ([f02621a](https://github.com/hywax/gotify-client/commit/f02621a))
+
+### ❤️ Contributors
+
+- Hywax ([@hywax](http://github.com/hywax))
+
 ## v0.2.0
 
 [compare changes](https://github.com/hywax/gotify-client/compare/v0.1.0...v0.2.0)
