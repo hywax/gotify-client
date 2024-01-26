@@ -2,7 +2,6 @@
   "name": "gotify-client",
   "type": "module",
   "version": "0.0.1",
-  "private": true,
   "exports": {
     ".": {
       "import": "./dist/gotify-client.js",
