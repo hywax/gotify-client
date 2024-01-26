@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.1.0
+
+[compare changes](https://github.com/hywax/gotify-client/compare/v0.0.3...v0.1.0)
+
+### 🩹 Fixes
+
+- Tsconfig json syntax ([ddc9d25](https://github.com/hywax/gotify-client/commit/ddc9d25))
+
+### 💅 Refactors
+
+- ⚠️  Rename Client to FetchHttpClient ([3551f3c](https://github.com/hywax/gotify-client/commit/3551f3c))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Rename Client to FetchHttpClient ([3551f3c](https://github.com/hywax/gotify-client/commit/3551f3c))
+
+### ❤️ Contributors
+
+- Hywax ([@hywax](http://github.com/hywax))
+
 ## v0.0.3
 
 [compare changes](https://github.com/hywax/gotify-client/compare/v0.0.2...v0.0.3)
