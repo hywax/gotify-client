@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.4.0
+
+[compare changes](https://github.com/hywax/gotify-client/compare/v0.3.0...v0.4.0)
+
+### 🏡 Chore
+
+- ⚠️  Add content-type to requests ([cca8d94](https://github.com/hywax/gotify-client/commit/cca8d94))
+- ⚠️  Writable args for api methods ([209ba23](https://github.com/hywax/gotify-client/commit/209ba23))
+- ⚠️  Support of two api keys ([8500fd0](https://github.com/hywax/gotify-client/commit/8500fd0))
+- Add readonly ([4c7f86a](https://github.com/hywax/gotify-client/commit/4c7f86a))
+- Regenerate client ([c84dd5a](https://github.com/hywax/gotify-client/commit/c84dd5a))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Add content-type to requests ([cca8d94](https://github.com/hywax/gotify-client/commit/cca8d94))
+- ⚠️  Writable args for api methods ([209ba23](https://github.com/hywax/gotify-client/commit/209ba23))
+- ⚠️  Support of two api keys ([8500fd0](https://github.com/hywax/gotify-client/commit/8500fd0))
+
+### ❤️ Contributors
+
+- Hywax ([@hywax](http://github.com/hywax))
+
 ## v0.3.0
 
 [compare changes](https://github.com/hywax/gotify-client/compare/v0.2.0...v0.3.0)
