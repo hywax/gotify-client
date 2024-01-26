@@ -1,0 +1,39 @@
+<%
+const { routes, name, modelTypes, apiMethodPathEjs, utils } = it
+const { getInlineParseContent } = utils
+const { _ } = utils
+
+const dataContracts = modelTypes.map((m) => m.name)
+const types = [...routes.reduce((set, route) => {
+    const { payload, requestParams } = route.request
+    const { type, errorType } = route.response
+    const typesToCheck = [
+        type.replace(/[^a-zA-Z]+/g, ''),
+        errorType,
+        payload?.type,
+        getInlineParseContent(requestParams)
+    ]
+
+    for (const t of typesToCheck) {
+        dataContracts.includes(t) && set.add(t)
+    }
+
+    return set
+}, new Set(['HttpClient', 'HttpContentType']))]
+%>
+
+<% if (types.length) { %>
+  import { <%~ types.join(', ') %> } from '../types'
+<% } %>
+
+export class <%~ _.capitalize(name) %>Api {
+  private httpClient: HttpClient
+
+  constructor(httpClient: HttpClient) {
+    this.httpClient = httpClient
+  }
+
+  <% for (const route of routes) { %>
+    <%~ includeFile(apiMethodPathEjs, { ...it, route }) %>
+  <% } %>
+}

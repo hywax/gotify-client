@@ -1,0 +1,51 @@
+<%
+const { route, utils } = it
+const { _, getInlineParseContent, getParseContent, parseSchema, getComponentByRef, require } = utils;
+const { parameters, path, method, payload, query, formData, security, requestParams } = route.request
+const { type, errorType, contentTypes } = route.response
+
+const queryName = (query && query.name) || 'query'
+const pathParams = _.values(parameters);
+const pathParamsNames = _.map(pathParams, 'name');
+
+const requestContent = {
+    "JSON": "HttpContentType.Json",
+    "URL_ENCODED": "HttpContentType.UrlEncoded",
+    "FORM_DATA": "HttpContentType.FormData",
+    "TEXT": "HttpContentType.Text",
+}
+
+const responseContent = {
+    "JSON": '"json"',
+    "IMAGE": '"blob"',
+    "FORM_DATA": '"formData"',
+}
+
+const argsToTemplate = ({ name, optional, type, defaultValue }) => `${name}${!defaultValue && optional ? '?' : ''}: ${type}${defaultValue ? ` = ${defaultValue}` : ''}`;
+
+const rawWrapperArgs = _.compact([
+    requestParams && {
+        name: pathParams.length ? `{ ${_.join(pathParamsNames, ", ")}, ...${queryName} }` : queryName,
+        optional: false,
+        type: getInlineParseContent(requestParams),
+    },
+    ...(!requestParams ? pathParams : []),
+    payload,
+])
+
+const argsTemplate = _.sortBy(rawWrapperArgs, [o => o.optional]).map(argsToTemplate).join(', ')
+const queryTemplate = (query != null && queryName) || null;
+const bodyTemplate = _.get(route.request.payload, 'name') || null
+const bodyContentTemplate = requestContent[route.requestBodyInfo.contentKind] || null;
+const responseFormatTemplate = responseContent[route.responseBodyInfo.success && route.responseBodyInfo.success.schema && route.responseBodyInfo.success.schema.contentKind] || null;
+%>
+
+public <%~ route.routeName.usage %>(<%~ argsTemplate %>): Promise<<%~ type %>> {
+  return this.httpClient.request<<%~ type %>>(`<%~ route.request.path %>`, {
+    method: '<%~ _.upperCase(route.request.method) %>',
+    <%~ queryTemplate ? `query: ${queryTemplate},` : '' %>
+    <%~ bodyTemplate ? `body: ${bodyTemplate},` : '' %>
+    <%~ bodyContentTemplate ? `type: ${bodyContentTemplate},` : '' %>
+    <%~ responseFormatTemplate ? `format: ${responseFormatTemplate},` : '' %>
+  })
+}
