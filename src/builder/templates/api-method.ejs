@@ -39,7 +39,10 @@ const bodyTemplate = _.get(route.request.payload, 'name') || null
 const bodyContentTemplate = requestContent[route.requestBodyInfo.contentKind] || null;
 const responseFormatTemplate = responseContent[route.responseBodyInfo.success && route.responseBodyInfo.success.schema && route.responseBodyInfo.success.schema.contentKind] || null;
 %>
+/**
+ * <%~ route.raw.summary %>
 
+ */
 public <%~ route.routeName.usage %>(<%~ argsTemplate %>): Promise<<%~ type %>> {
   return this.httpClient.request<<%~ type %>>(`<%~ route.request.path %>`, {
     method: '<%~ _.upperCase(route.request.method) %>',
@@ -49,3 +52,4 @@ public <%~ route.routeName.usage %>(<%~ argsTemplate %>): Promise<<%~ type %>> {
     <%~ responseFormatTemplate ? `format: ${responseFormatTemplate},` : '' %>
   })
 }
+
