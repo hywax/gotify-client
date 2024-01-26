@@ -21,7 +21,7 @@ const responseContent = {
     "FORM_DATA": '"formData"',
 }
 
-const argsToTemplate = ({ name, optional, type, defaultValue }) => `${name}${!defaultValue && optional ? '?' : ''}: ${type}${defaultValue ? ` = ${defaultValue}` : ''}`;
+const argsToTemplate = ({ name, optional, type, defaultValue }) => `${name}${!defaultValue && optional ? '?' : ''}: Writable<${type}>${defaultValue ? ` = ${defaultValue}` : ''}`;
 
 const rawWrapperArgs = _.compact([
     requestParams && {
