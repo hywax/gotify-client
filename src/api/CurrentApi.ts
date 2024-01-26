@@ -1,4 +1,4 @@
-import type { HttpClient, User, UserPass } from '../types'
+import type { HttpClient, User, UserPass, Writable } from '../types'
 import { HttpContentType } from '../types'
 
 export class CurrentApi {
@@ -21,7 +21,7 @@ export class CurrentApi {
   /**
    * Update the password of the current user.
    */
-  public updateCurrentUser(body: UserPass): Promise<void> {
+  public updateCurrentUser(body: Writable<UserPass>): Promise<void> {
     return this.httpClient.request<void>(`/current/user/password`, {
       method: 'POST',
       body,

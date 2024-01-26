@@ -4,7 +4,8 @@ import type {
   GetAppMessagesParams,
   HttpClient,
   PagedMessages,
-  UploadAppImagePayload } from '../types'
+  UploadAppImagePayload,
+  Writable } from '../types'
 import {
   HttpContentType,
 } from '../types'
@@ -30,7 +31,7 @@ export class ApplicationApi {
   /**
    * Create an application.
    */
-  public createApp(body: ApplicationParams): Promise<Application> {
+  public createApp(body: Writable<ApplicationParams>): Promise<Application> {
     return this.httpClient.request<Application>(`/application`, {
       method: 'POST',
       body,
@@ -42,7 +43,7 @@ export class ApplicationApi {
   /**
    * Update an application.
    */
-  public updateApplication(id: number, body: ApplicationParams): Promise<Application> {
+  public updateApplication(id: Writable<number>, body: Writable<ApplicationParams>): Promise<Application> {
     return this.httpClient.request<Application>(`/application/${id}`, {
       method: 'PUT',
       body,
@@ -54,7 +55,7 @@ export class ApplicationApi {
   /**
    * Delete an application.
    */
-  public deleteApp(id: number): Promise<void> {
+  public deleteApp(id: Writable<number>): Promise<void> {
     return this.httpClient.request<void>(`/application/${id}`, {
       method: 'DELETE',
       type: HttpContentType.Json,
@@ -64,7 +65,7 @@ export class ApplicationApi {
   /**
    * Upload an image for an application.
    */
-  public uploadAppImage(id: number, data: UploadAppImagePayload): Promise<Application> {
+  public uploadAppImage(id: Writable<number>, data: Writable<UploadAppImagePayload>): Promise<Application> {
     return this.httpClient.request<Application>(`/application/${id}/image`, {
       method: 'POST',
       body: data,
@@ -76,7 +77,7 @@ export class ApplicationApi {
   /**
    * Deletes an image of an application.
    */
-  public removeAppImage(id: number): Promise<void> {
+  public removeAppImage(id: Writable<number>): Promise<void> {
     return this.httpClient.request<void>(`/application/${id}/image`, {
       method: 'DELETE',
       type: HttpContentType.Json,
@@ -86,7 +87,7 @@ export class ApplicationApi {
   /**
    * Return all messages from a specific application.
    */
-  public getAppMessages({ id, ...query }: GetAppMessagesParams): Promise<PagedMessages> {
+  public getAppMessages({ id, ...query }: Writable<GetAppMessagesParams>): Promise<PagedMessages> {
     return this.httpClient.request<PagedMessages>(`/application/${id}/message`, {
       method: 'GET',
       query,
@@ -97,7 +98,7 @@ export class ApplicationApi {
   /**
    * Delete all messages from a specific application.
    */
-  public deleteAppMessages(id: number): Promise<void> {
+  public deleteAppMessages(id: Writable<number>): Promise<void> {
     return this.httpClient.request<void>(`/application/${id}/message`, {
       method: 'DELETE',
     })

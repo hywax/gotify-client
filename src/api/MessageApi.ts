@@ -1,4 +1,4 @@
-import type { GetMessagesParams, HttpClient, Message, PagedMessages } from '../types'
+import type { GetMessagesParams, HttpClient, Message, PagedMessages, Writable } from '../types'
 import { HttpContentType } from '../types'
 
 export class MessageApi {
@@ -11,7 +11,7 @@ export class MessageApi {
   /**
    * Return all messages.
    */
-  public getMessages(query: GetMessagesParams): Promise<PagedMessages> {
+  public getMessages(query: Writable<GetMessagesParams>): Promise<PagedMessages> {
     return this.httpClient.request<PagedMessages>(`/message`, {
       method: 'GET',
       query,
@@ -22,7 +22,7 @@ export class MessageApi {
   /**
    * Create a message.
    */
-  public createMessage(body: Message): Promise<Message> {
+  public createMessage(body: Writable<Message>): Promise<Message> {
     return this.httpClient.request<Message>(`/message`, {
       method: 'POST',
       body,
@@ -43,7 +43,7 @@ export class MessageApi {
   /**
    * Deletes a message with an id.
    */
-  public deleteMessage(id: number): Promise<void> {
+  public deleteMessage(id: Writable<number>): Promise<void> {
     return this.httpClient.request<void>(`/message/${id}`, {
       method: 'DELETE',
     })

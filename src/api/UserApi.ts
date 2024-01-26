@@ -1,4 +1,4 @@
-import type { CreateUserExternal, HttpClient, UpdateUserExternal, User } from '../types'
+import type { CreateUserExternal, HttpClient, UpdateUserExternal, User, Writable } from '../types'
 import { HttpContentType } from '../types'
 
 export class UserApi {
@@ -21,7 +21,7 @@ export class UserApi {
   /**
    * Create a user.
    */
-  public createUser(body: CreateUserExternal): Promise<User> {
+  public createUser(body: Writable<CreateUserExternal>): Promise<User> {
     return this.httpClient.request<User>(`/user`, {
       method: 'POST',
       body,
@@ -33,7 +33,7 @@ export class UserApi {
   /**
    * Get a user.
    */
-  public getUser(id: number): Promise<User> {
+  public getUser(id: Writable<number>): Promise<User> {
     return this.httpClient.request<User>(`/user/${id}`, {
       method: 'GET',
       type: HttpContentType.Json,
@@ -44,7 +44,7 @@ export class UserApi {
   /**
    * Update a user.
    */
-  public updateUser(id: number, body: UpdateUserExternal): Promise<User> {
+  public updateUser(id: Writable<number>, body: Writable<UpdateUserExternal>): Promise<User> {
     return this.httpClient.request<User>(`/user/${id}`, {
       method: 'POST',
       body,
@@ -56,7 +56,7 @@ export class UserApi {
   /**
    * Deletes a user.
    */
-  public deleteUser(id: number): Promise<void> {
+  public deleteUser(id: Writable<number>): Promise<void> {
     return this.httpClient.request<void>(`/user/${id}`, {
       method: 'DELETE',
     })

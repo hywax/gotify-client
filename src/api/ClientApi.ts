@@ -1,4 +1,4 @@
-import type { Client, ClientParams, HttpClient } from '../types'
+import type { Client, ClientParams, HttpClient, Writable } from '../types'
 import { HttpContentType } from '../types'
 
 export class ClientApi {
@@ -22,7 +22,7 @@ export class ClientApi {
   /**
    * Create a client.
    */
-  public createClient(body: ClientParams): Promise<Client> {
+  public createClient(body: Writable<ClientParams>): Promise<Client> {
     return this.httpClient.request<Client>(`/client`, {
       method: 'POST',
       body,
@@ -34,7 +34,7 @@ export class ClientApi {
   /**
    * Update a client.
    */
-  public updateClient(id: number, body: ClientParams): Promise<Client> {
+  public updateClient(id: Writable<number>, body: Writable<ClientParams>): Promise<Client> {
     return this.httpClient.request<Client>(`/client/${id}`, {
       method: 'PUT',
       body,
@@ -46,7 +46,7 @@ export class ClientApi {
   /**
    * Delete a client.
    */
-  public deleteClient(id: number): Promise<void> {
+  public deleteClient(id: Writable<number>): Promise<void> {
     return this.httpClient.request<void>(`/client/${id}`, {
       method: 'DELETE',
       type: HttpContentType.Json,
