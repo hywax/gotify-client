@@ -4,7 +4,7 @@ const { _ } = utils
 %>
 
 import type { HttpClient } from './types'
-import { Client } from './Client'
+import { FetchHttpClient } from './FetchHttpClient'
 <% for (const module of modules) { %>
   import { <%~ _.capitalize(module) %>Api } from './api/<%~ _.capitalize(module) %>Api'
 <% } %>
@@ -16,7 +16,7 @@ export class GotifyClient {
   <% } %>
 
   constructor(host: string, apiKey: string) {
-    this.httpClient = new Client(host, apiKey)
+    this.httpClient = new FetchHttpClient(host, apiKey)
 
     <% for (const module of modules) { %>
       this.<%~ module %>Api = new <%~ _.capitalize(module) %>Api(this.httpClient)

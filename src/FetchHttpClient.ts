@@ -1,7 +1,7 @@
 import type { HttpClient, HttpRequestParams, QueryParamsType } from './types'
 import { HttpContentType } from './types'
 
-export class Client implements HttpClient {
+export class FetchHttpClient implements HttpClient {
   private readonly host: string
   private readonly apiKey: string
 
