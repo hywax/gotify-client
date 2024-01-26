@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.0.3
+
+[compare changes](https://github.com/hywax/gotify-client/compare/v0.0.2...v0.0.3)
+
+### 🏡 Chore
+
+- **builder:** Index generator ([48110ca](https://github.com/hywax/gotify-client/commit/48110ca))
+- **builder:** Api methods description ([f621006](https://github.com/hywax/gotify-client/commit/f621006))
+
+### ❤️ Contributors
+
+- Hywax ([@hywax](http://github.com/hywax))
+
 ## v0.0.2
 
 [compare changes](https://github.com/hywax/gotify-client/compare/v0.0.1...v0.0.2)
