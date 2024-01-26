@@ -12,6 +12,6 @@ const api = await generateApi({
   generateClient: false,
 })
 
-typesGenerator(api)
-indexGenerator(api)
-apiGenerator(api)
+await typesGenerator(api)
+await indexGenerator(api)
+await apiGenerator(api)
