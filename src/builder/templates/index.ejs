@@ -3,33 +3,9 @@ const { modules, utils } = it
 const { _ } = utils
 %>
 
-import type { HttpClient } from './types'
-import { FetchHttpClient } from './FetchHttpClient'
+export * from './types'
+export { GotifyClient } from './GotifyClient'
+export { FetchHttpClient } from './FetchHttpClient'
 <% for (const module of modules) { %>
-  import { <%~ _.capitalize(module) %>Api } from './api/<%~ _.capitalize(module) %>Api'
+  export { <%~ _.capitalize(module) %>Api } from './api/<%~ _.capitalize(module) %>Api'
 <% } %>
-
-export class GotifyClient {
-  private readonly httpClient: HttpClient
-  <% for (const module of modules) { %>
-    private readonly <%~ module %>Api: <%~ _.capitalize(module) %>Api
-  <% } %>
-
-  constructor(host: string, apiKey: string) {
-    this.httpClient = new FetchHttpClient(host, apiKey)
-
-    <% for (const module of modules) { %>
-      this.<%~ module %>Api = new <%~ _.capitalize(module) %>Api(this.httpClient)
-    <% } %>
-  }
-
-  <% for (const module of modules) { %>
-    /**
-     * Get an <%~ _.capitalize(module) %>Api instance
-     */
-    public get <%~ module %>(): <%~ _.capitalize(module) %>Api {
-      return this.<%~ module %>Api;
-    }
-
-  <% } %>
-}
