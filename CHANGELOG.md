@@ -1,6 +1,42 @@
 # Changelog
 
 
+## v0.2.0
+
+[compare changes](https://github.com/hywax/gotify-client/compare/v0.1.0...v0.2.0)
+
+### 🚀 Enhancements
+
+- Application api ([38ae5fb](https://github.com/hywax/gotify-client/commit/38ae5fb))
+- Client api ([30743d8](https://github.com/hywax/gotify-client/commit/30743d8))
+- Current api ([553a6db](https://github.com/hywax/gotify-client/commit/553a6db))
+- Health api ([ed890bb](https://github.com/hywax/gotify-client/commit/ed890bb))
+- Message api ([c7edc3b](https://github.com/hywax/gotify-client/commit/c7edc3b))
+- Plugin api ([71dc4f3](https://github.com/hywax/gotify-client/commit/71dc4f3))
+- Stream api ([4bfacb9](https://github.com/hywax/gotify-client/commit/4bfacb9))
+- User api ([41e048c](https://github.com/hywax/gotify-client/commit/41e048c))
+- Version api ([3477488](https://github.com/hywax/gotify-client/commit/3477488))
+- Gotify client ([108ab63](https://github.com/hywax/gotify-client/commit/108ab63))
+
+### 📦 Build
+
+- ⚠️  There are ES, CJS types left ([fe3ef80](https://github.com/hywax/gotify-client/commit/fe3ef80))
+
+### 🏡 Chore
+
+- Generate client types ([2352154](https://github.com/hywax/gotify-client/commit/2352154))
+- Remove template sum function ([7fa644e](https://github.com/hywax/gotify-client/commit/7fa644e))
+- Empty builder test ([c9e8dc7](https://github.com/hywax/gotify-client/commit/c9e8dc7))
+- Empty fetch http client test ([240cf6a](https://github.com/hywax/gotify-client/commit/240cf6a))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  There are ES, CJS types left ([fe3ef80](https://github.com/hywax/gotify-client/commit/fe3ef80))
+
+### ❤️ Contributors
+
+- Hywax ([@hywax](http://github.com/hywax))
+
 ## v0.1.0
 
 [compare changes](https://github.com/hywax/gotify-client/compare/v0.0.3...v0.1.0)
