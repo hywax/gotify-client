@@ -94,7 +94,7 @@ The source documentation is fully described in swagger on the [official website]
 <!-- API -->
 ### ApplicationApi
 
-| <div style="width:150px">Method</div> | <div style="width:290px">Description</div> | Http request |
+| Method | Description | Http request |
 |--------|-------------|--------------|
 | `getApps` | Return all applications. | `GET /application` |
 | `createApp` | Create an application. | `POST /application` |
@@ -107,7 +107,7 @@ The source documentation is fully described in swagger on the [official website]
 
 ### ClientApi
 
-| <div style="width:150px">Method</div> | <div style="width:290px">Description</div> | Http request |
+| Method | Description | Http request |
 |--------|-------------|--------------|
 | `getClients` | Return all clients. | `GET /client` |
 | `createClient` | Create a client. | `POST /client` |
@@ -116,20 +116,20 @@ The source documentation is fully described in swagger on the [official website]
 
 ### CurrentApi
 
-| <div style="width:150px">Method</div> | <div style="width:290px">Description</div> | Http request |
+| Method | Description | Http request |
 |--------|-------------|--------------|
 | `currentUser` | Return the current user. | `GET /current/user` |
 | `updateCurrentUser` | Update the password of the current user. | `POST /current/user/password` |
 
 ### HealthApi
 
-| <div style="width:150px">Method</div> | <div style="width:290px">Description</div> | Http request |
+| Method | Description | Http request |
 |--------|-------------|--------------|
 | `getHealth` | Get health information. | `GET /health` |
 
 ### MessageApi
 
-| <div style="width:150px">Method</div> | <div style="width:290px">Description</div> | Http request |
+| Method | Description | Http request |
 |--------|-------------|--------------|
 | `getMessages` | Return all messages. | `GET /message` |
 | `createMessage` | Create a message. | `POST /message` |
@@ -138,7 +138,7 @@ The source documentation is fully described in swagger on the [official website]
 
 ### PluginApi
 
-| <div style="width:150px">Method</div> | <div style="width:290px">Description</div> | Http request |
+| Method | Description | Http request |
 |--------|-------------|--------------|
 | `getPlugins` | Return all plugins. | `GET /plugin` |
 | `getPluginConfig` | Get YAML configuration for Configurer plugin. | `GET /plugin/${id}/config` |
@@ -149,13 +149,13 @@ The source documentation is fully described in swagger on the [official website]
 
 ### StreamApi
 
-| <div style="width:150px">Method</div> | <div style="width:290px">Description</div> | Http request |
+| Method | Description | Http request |
 |--------|-------------|--------------|
 | `streamMessages` | Websocket, return newly created messages. | `GET /stream` |
 
 ### UserApi
 
-| <div style="width:150px">Method</div> | <div style="width:290px">Description</div> | Http request |
+| Method | Description | Http request |
 |--------|-------------|--------------|
 | `getUsers` | Return all users. | `GET /user` |
 | `createUser` | Create a user. | `POST /user` |
@@ -165,7 +165,7 @@ The source documentation is fully described in swagger on the [official website]
 
 ### VersionApi
 
-| <div style="width:150px">Method</div> | <div style="width:290px">Description</div> | Http request |
+| Method | Description | Http request |
 |--------|-------------|--------------|
 | `getVersion` | Get version information. | `GET /version` |
 
