@@ -1,0 +1,15 @@
+<%
+const { api, utils } = it
+const { _ } = utils
+%>
+
+<% for (const module of api.configuration.routes.combined) { %>
+### <%~ _.capitalize(module.moduleName) %>Api
+
+| Method | Description | Http request |
+|--------|-------------|--------------|
+<% for (const route of module.routes) { %>
+| `<%~ route.routeName.usage %>` | <%~ route.raw.summary %> | `<%~ _.upperCase(route.request.method) %> <%~ route.request.path %>` |
+<% } %>
+
+<% } %>

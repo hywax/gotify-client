@@ -1,0 +1,8 @@
+<%
+const { api, utils } = it
+const { _ } = utils
+%>
+
+<% for (const module of api.configuration.routes.combined) { %>
+  * [<%~ _.capitalize(module.moduleName) %>Api](#<%~ _.capitalize(module.moduleName) %>Api)
+<% } %>
