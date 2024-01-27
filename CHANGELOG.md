@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.4.1
+
+[compare changes](https://github.com/hywax/gotify-client/compare/v0.4.0...v0.4.1)
+
+### 📖 Documentation
+
+- Add package cover ([34b57aa](https://github.com/hywax/gotify-client/commit/34b57aa))
+- Change cover ([43feb99](https://github.com/hywax/gotify-client/commit/43feb99))
+- Base readme ([6220334](https://github.com/hywax/gotify-client/commit/6220334))
+- Readme api section ([2507181](https://github.com/hywax/gotify-client/commit/2507181))
+- Readme api toc section ([194714e](https://github.com/hywax/gotify-client/commit/194714e))
+- Remove unused tags ([4c203c8](https://github.com/hywax/gotify-client/commit/4c203c8))
+
+### 🏡 Chore
+
+- Readme generator ([8e53078](https://github.com/hywax/gotify-client/commit/8e53078))
+
+### ❤️ Contributors
+
+- Hywax ([@hywax](http://github.com/hywax))
+
 ## v0.4.0
 
 [compare changes](https://github.com/hywax/gotify-client/compare/v0.3.0...v0.4.0)
