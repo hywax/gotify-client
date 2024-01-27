@@ -14,11 +14,11 @@ Full-featured HTTP client to work with Gotify API.
 * [Features](#-features)
 * [Installation](#-installation)
 * [Usage](#-usage)
-  * [Base](#-base)
-  * [Configuration](#-configuration)
+    * [Base](#-base)
+    * [Configuration](#-configuration)
 * [API](#-api)
 * [Advanced](#-advanced)
-  * [Custom client](#-custom-client)
+    * [Custom client](#-custom-client)
 * [License](#-license)
 </details>
 
@@ -82,6 +82,83 @@ constructor(host: string, authKeys: {
 The source documentation is fully described in swagger on the [official website](https://gotify.net/api-docs).
 
 <!-- API -->
+### ApplicationApi
+
+| Method | Description | Http request |
+|--------|-------------|--------------|
+| `getApps` | Return all applications. | **GET** /application |
+| `createApp` | Create an application. | **POST** /application |
+| `updateApplication` | Update an application. | **PUT** /application/${id} |
+| `deleteApp` | Delete an application. | **DELETE** /application/${id} |
+| `uploadAppImage` | Upload an image for an application. | **POST** /application/${id}/image |
+| `removeAppImage` | Deletes an image of an application. | **DELETE** /application/${id}/image |
+| `getAppMessages` | Return all messages from a specific application. | **GET** /application/${id}/message |
+| `deleteAppMessages` | Delete all messages from a specific application. | **DELETE** /application/${id}/message |
+
+### ClientApi
+
+| Method | Description | Http request |
+|--------|-------------|--------------|
+| `getClients` | Return all clients. | **GET** /client |
+| `createClient` | Create a client. | **POST** /client |
+| `updateClient` | Update a client. | **PUT** /client/${id} |
+| `deleteClient` | Delete a client. | **DELETE** /client/${id} |
+
+### CurrentApi
+
+| Method | Description | Http request |
+|--------|-------------|--------------|
+| `currentUser` | Return the current user. | **GET** /current/user |
+| `updateCurrentUser` | Update the password of the current user. | **POST** /current/user/password |
+
+### HealthApi
+
+| Method | Description | Http request |
+|--------|-------------|--------------|
+| `getHealth` | Get health information. | **GET** /health |
+
+### MessageApi
+
+| Method | Description | Http request |
+|--------|-------------|--------------|
+| `getMessages` | Return all messages. | **GET** /message |
+| `createMessage` | Create a message. | **POST** /message |
+| `deleteMessages` | Delete all messages. | **DELETE** /message |
+| `deleteMessage` | Deletes a message with an id. | **DELETE** /message/${id} |
+
+### PluginApi
+
+| Method | Description | Http request |
+|--------|-------------|--------------|
+| `getPlugins` | Return all plugins. | **GET** /plugin |
+| `getPluginConfig` | Get YAML configuration for Configurer plugin. | **GET** /plugin/${id}/config |
+| `updatePluginConfig` | Update YAML configuration for Configurer plugin. | **POST** /plugin/${id}/config |
+| `disablePlugin` | Disable a plugin. | **POST** /plugin/${id}/disable |
+| `getPluginDisplay` | Get display info for a Displayer plugin. | **GET** /plugin/${id}/display |
+| `enablePlugin` | Enable a plugin. | **POST** /plugin/${id}/enable |
+
+### StreamApi
+
+| Method | Description | Http request |
+|--------|-------------|--------------|
+| `streamMessages` | Websocket, return newly created messages. | **GET** /stream |
+
+### UserApi
+
+| Method | Description | Http request |
+|--------|-------------|--------------|
+| `getUsers` | Return all users. | **GET** /user |
+| `createUser` | Create a user. | **POST** /user |
+| `getUser` | Get a user. | **GET** /user/${id} |
+| `updateUser` | Update a user. | **POST** /user/${id} |
+| `deleteUser` | Deletes a user. | **DELETE** /user/${id} |
+
+### VersionApi
+
+| Method | Description | Http request |
+|--------|-------------|--------------|
+| `getVersion` | Get version information. | **GET** /version |
+
 <!-- /API -->
 
 ## ⚡ Advanced
