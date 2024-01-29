@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.4.2
+
+[compare changes](https://github.com/hywax/gotify-client/compare/v0.4.1...v0.4.2)
+
+### 🤖 CI
+
+- Migrate from dependabot to renovate ([2b36f24](https://github.com/hywax/gotify-client/commit/2b36f24))
+
+### ❤️ Contributors
+
+- Hywax ([@hywax](http://github.com/hywax))
+
 ## v0.4.1
 
 [compare changes](https://github.com/hywax/gotify-client/compare/v0.4.0...v0.4.1)
