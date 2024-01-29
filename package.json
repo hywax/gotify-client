@@ -36,7 +36,7 @@
     "camelcase": "^8.0.0",
     "changelogen": "^0.5.5",
     "eslint": "^8.56.0",
-    "husky": "^9.0.6",
+    "husky": "^9.0.7",
     "lint-staged": "^15.2.0",
     "lodash": "^4.17.21",
     "swagger-typescript-api": "^13.0.3",
