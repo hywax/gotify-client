@@ -14,6 +14,7 @@ Full-featured HTTP client to work with Gotify API.
 * [Features](#-features)
 * [Installation](#-installation)
 * [Usage](#-usage)
+    * [Mapping version](#-mapping-version)
     * [Base](#-base)
     * [Configuration](#-configuration)
 * [API](#-api)
@@ -55,6 +56,12 @@ npm install gotify-client -D
 ```
 
 ## ⚡ Usage
+
+### 🗺️ Mapping version
+
+| Gotify Client | Gotify Server |
+|---------------|---------------|
+| 0.4.0         | 2.4.0         |
 
 ### 🚀 Base
 
