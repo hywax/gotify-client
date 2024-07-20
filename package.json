@@ -27,7 +27,7 @@
     "generate": "tsx src/builder/index.ts"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.23.0",
+    "@antfu/eslint-config": "^2.23.1",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@types/lodash": "^4.17.7",
