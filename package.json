@@ -27,11 +27,11 @@
     "generate": "tsx src/builder/index.ts"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.23.1",
+    "@antfu/eslint-config": "^2.23.2",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@types/lodash": "^4.17.7",
-    "@types/node": "^20.14.11",
+    "@types/node": "^20.14.12",
     "@vitest/coverage-v8": "^1.6.0",
     "camelcase": "^8.0.0",
     "changelogen": "^0.5.5",
@@ -41,7 +41,7 @@
     "lodash": "^4.17.21",
     "swagger-typescript-api": "^13.0.13",
     "tsx": "^4.16.2",
-    "typescript": "^5.5.3",
+    "typescript": "^5.5.4",
     "vite": "^5.3.4",
     "vite-plugin-dts": "^3.9.1",
     "vitest": "^1.6.0"
