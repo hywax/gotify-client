@@ -39,7 +39,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "lodash": "^4.17.21",
-    "swagger-typescript-api": "^13.1.0",
+    "swagger-typescript-api": "^13.1.1",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3",
     "vite": "^5.4.18",
